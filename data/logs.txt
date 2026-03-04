@@ -1,0 +1,27 @@
+
+[00:09:45] Python OS started
+[00:09:49] Python OS started
+[00:11:02] Register option selected
+[00:12:32] Python OS started
+[00:12:35] Python OS started
+[00:12:37] Register option selected
+[00:12:43] New user registered: dhruv
+[00:14:46] Python OS started
+[00:14:49] Python OS started
+[00:14:52] Register option selected
+[00:15:15] New user registered: dhruv
+[00:15:21] User dhruv logged in
+[00:16:54] File test.txt created
+[00:17:39] File test.txt read
+[00:18:07] File test.txt deleted
+[00:18:37] File test.txt created
+[00:18:38] File list viewed
+[00:19:37] Process minecraft started with PID 1000
+[00:20:35] Process minecraft with PID 1000 terminated
+[00:21:59] 500MB allocated to process minecraft
+[00:22:22] Memory status viewed
+[00:22:56] 500MB memory freed from process minecraft
+[00:23:13] Memory status viewed
+[00:23:34] Memory status viewed
+[00:24:41] User logged out
+[00:25:14] Python OS closed

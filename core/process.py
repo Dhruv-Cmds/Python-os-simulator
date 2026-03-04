@@ -1,0 +1,91 @@
+# PROCESS MANAGER
+from logger import log
+
+class ProcessManager:
+
+    def __init__ (self):
+        self.processes = []
+        self.next_pid = 1000
+
+    # process start from here
+    def start_process(self , sp):
+        
+        process = {
+            "pid" : self.next_pid,
+            "sp" : sp
+        }
+
+        self.processes.append(process)
+        print(f"Process started with PID {self.next_pid}")
+
+        log(f"Process {sp} started with PID {self.next_pid}")
+
+        self.next_pid += 1
+
+    # process kill from here
+    def kill_process(self , pid):
+        
+        if not self.processes:
+            print("No processes to kill.")
+            return
+        
+        for p in self.processes:
+            if p['pid'] == pid:
+                self.processes.remove(p)
+                print(f"Process {p['sp']} terminated.")
+
+                log(f"Process {p['sp']} with PID {pid} terminated")
+
+                return
+
+    # view process from here
+    def view_running_task(self):
+        
+        if not self.processes:
+            print("No running processes.")
+            return
+        
+        print("\n Running Processes: ")
+        for p in self.processes:
+            print(f"PID {p['pid']} - {p['sp']}")
+
+    # manage all task form here
+    def process_manager(self):
+        
+        print("--- Process Manager ---")
+
+        while True:
+            
+            print("1. Start Process")
+            print("2. Kill Process")
+            print("3. View Running Processes")
+            print("4. Back")
+
+            try:            # To avoid user wrong input
+                choice = int(input("Choose an option (1-4): "))
+            except ValueError:     # To void crashes
+                print("Invalid choice type!")
+                continue
+
+            if choice == 1:
+
+                # start process = sp
+                sp = input("Enter process name: ")
+                self.start_process(sp)
+            
+            elif choice == 2:
+
+                pid = int(input("Enter PID to kill: "))
+                self.kill_process(pid)
+
+            elif choice == 3:
+                self.view_running_task()
+
+            elif choice == 4:
+                print("Back...")
+                break
+            
+            else:
+                print("Invalid choice type.")
+
+p = ProcessManager()

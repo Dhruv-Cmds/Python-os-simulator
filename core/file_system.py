@@ -1,4 +1,6 @@
+#  FILE SYSTEM
 import os
+from logger import log
 
 class FileSystem:
 
@@ -15,6 +17,8 @@ class FileSystem:
             f.write(fc)
             print("File created successfully.")
 
+        log(f"File {cf} created")
+
         return cf
 
     # READ FILES
@@ -22,6 +26,9 @@ class FileSystem:
         if os.path.exists(cf):
             with open(cf, "r") as f:
                 print(f.read())
+
+            log(f"File {cf} read")
+
         else:
             print("File not found.")
 
@@ -31,6 +38,9 @@ class FileSystem:
         if os.path.exists(cf):
             os.remove(cf)
             print("File deleted.")
+
+            log(f"File {cf} deleted")
+
         else:
             print("File not found.")
 
@@ -41,6 +51,8 @@ class FileSystem:
         files = [f for f in os.listdir() if f.endswith(".txt")]
         for i , file in enumerate(files , 1):
             print(f"{i}: {file}")
+
+        log("File list viewed")
 
     # MAIN FILE SYSTEM MENU START FORM HERE
     def file_system_menu(self):
@@ -57,9 +69,9 @@ class FileSystem:
             print("4. List Files")
             print("5. Back")
 
-            try:
+            try:            # To avoid user wrong input
                 choice = int(input("Choose an option: "))
-            except ValueError:
+            except ValueError:     # To void crashes
                 print("Invalid choice type!")
                 continue
             

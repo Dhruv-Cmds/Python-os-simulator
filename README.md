@@ -22,6 +22,33 @@ This project was built as a learning exercise to strengthen understanding of:
 
 ---
 
+## Overview
+
+The goal of this project is to simulate how a simple operating system manages different subsystems.
+
+---
+
+## Screenshots
+
+### System Start
+![System Start](screenshots/01_system_start_menu.png)
+
+### Main Menu
+![Main Menu](screenshots/03_login_success_main_menu.png)
+
+### File System
+![File System](screenshots/04_file_system_menu.png)
+
+### Process Manager
+![Process Manager](screenshots/10_process_manager_menu.png)
+
+### Memory Manager
+![Memory Manager](screenshots/14_memory_manager_menu.png)
+
+### System Logs
+![Logs](screenshots/19_view_system_logs.png)
+
+
 ## Features
 
 * **User Authentication**
@@ -61,21 +88,26 @@ This project was built as a learning exercise to strengthen understanding of:
 ## Project Structure
 
 ```
-project-root/
+python-os-simulator/
 │
 ├── core/
-│   ├── os.py
-│   ├── user.py
 │   ├── file_system.py
+│   └── logger.py
+│   ├── Main.py
+│   ├── memory.py
+│   ├── pos.py
 │   ├── process.py
-│   └── memory.py
 │
 ├── data/
-│   ├── users.txt
 │   ├── files.json
-│   └── logs.txt
+│   ├── logs.txt
+│   ├── test.txt
+│   └── users.txt
 │
-├── main.py
+├── screenshots
+│
+├── .gitattributes
+├── .gitignore
 └── README.md
 ```
 
