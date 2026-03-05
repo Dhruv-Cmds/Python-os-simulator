@@ -8,8 +8,7 @@ class FileSystem:
     def create_file(self):
 
         # creat file = cf
-        # current support formate .txt
-        cf = input("Enter file name (format: .txt): ")
+        cf = input("Enter file name: ")
 
         with open (cf , "w") as f:
             # file content = fc
@@ -48,7 +47,7 @@ class FileSystem:
     def list_file(self):
         
         print("Files:")
-        files = [f for f in os.listdir() if f.endswith(".txt")]
+        files = [f for f in os.listdir() if os.path.isfile(f)]
         for i , file in enumerate(files , 1):
             print(f"{i}: {file}")
 
