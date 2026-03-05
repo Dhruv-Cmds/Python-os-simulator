@@ -13,7 +13,7 @@ class Memory:
     # allocate memory to process
     def allocate_memory (self):
 
-        process = input("Enter process name: ").strip()
+        process = input("\nEnter process name: ").strip()
 
         if process in self.memory:
             print("Process already exists.")
@@ -28,17 +28,17 @@ class Memory:
                 amb = int(input("Enter amount to allocate (MB): "))
 
                 if amb <= 0:
-                    print("Memory must be greater than 0.")
+                    print("Memory must be greater than 0.\n")
                     log(f"Memory allocation failed for {process}: invalid amount {amb}")
                     continue
 
                 if amb > self.memory_limit:
-                    print("Insufficient memory.")
+                    print("Insufficient memory.\n")
                     log(f"Memory allocation failed for {process}: insufficient memory request {amb}MB")
                     continue
 
             except ValueError:
-                print("Invalid (MB) type!")
+                print("Invalid (MB) type!\n")
                 log("Memory allocation failed: invalid MB input")
                 continue
             break
@@ -48,12 +48,12 @@ class Memory:
 
         #  give waring to user
         if self.memory_limit < 200:
-            print("Warning: Low memory!")
+            print("Warning: Low memory!\n")
 
             log("Low memory warning triggered")
         
         self.memory[process] = amb
-        print(f"{amb} MB allocated to {process}.")
+        print(f"{amb} MB allocated to {process}.\n")
 
         log(f"{amb}MB allocated to process {process}")
 
@@ -62,14 +62,14 @@ class Memory:
     # free memory from porcess
     def free_memory(self):
 
-        process = input("Enter process name to free memory: ").strip()
+        process = input("\nEnter process name to free memory: ").strip()
 
         if process == "":
-            print("Invalid process name.")
+            print("Invalid process name.\n")
             return
 
         if not self.memory:
-            print("No memory to free.")
+            print("No memory to free.\n")
             log("Memory free attempted but no processes exist")
             return
         
@@ -80,12 +80,12 @@ class Memory:
             # return memory form process after end
             self.memory_limit += freed
 
-            print(f"{freed} MB freed from {process} successfully.")
+            print(f"{freed} MB freed from {process} successfully.\n")
 
             log(f"{freed}MB memory freed from process {process}")
         
         else:
-            print("Process not found.")
+            print("Process not found.\n")
 
             log(f"Memory free failed: process {process} not found")
 
@@ -97,7 +97,7 @@ class Memory:
         free_memory = total_memory - used_memory
         usage_percentage = (used_memory / total_memory) * 100
 
-        print(f"Total Memory: {total_memory} MB")
+        print(f"\nTotal Memory: {total_memory} MB")
         print(f"Used Memory: {used_memory} MB")
         print(f"Free Memory: {free_memory} MB")
         print(f"Memory Usage: {usage_percentage:.2f}%")
@@ -116,19 +116,19 @@ class Memory:
     # main memory menu
     def memory_menu (self):
 
-        print ("--- Memory Manager ---")
 
         while True:
 
+            print ("\n--- Memory Manager ---")
             print("1. Allocate Memory")
             print("2. Free Memory")
             print("3. Show current Memory")
             print("4. Back")
 
             try:            # To avoid user wrong input
-                choice = int(input("Choose an option: "))
+                choice = int(input("\nChoose an option (1-4): "))
             except ValueError:      # To void crashes
-                print("Invalid choice type!")
+                print("Invalid choice type!\n")
                 log("Invalid memory menu input type")
                 continue
 
@@ -142,11 +142,11 @@ class Memory:
                 self.show_current_memory()
 
             elif choice == 4:
-                print("Back...")
+                print("\nBack...\n")
                 break
 
             else:
-                print("Invalid choice.")
+                print("Invalid choice.\n")
                 log("Invalid memory menu choice entered")
 
 m = Memory()

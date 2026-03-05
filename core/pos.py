@@ -12,7 +12,7 @@ class Login:
     def login(self):
         
         while True: 
-            username = input("Enter username: ").strip()
+            username = input("\nEnter username: ").strip()
 
             if username == "":
                 print("Invalid username.")
@@ -58,7 +58,7 @@ class Login:
 
         while True:
 
-            print("--- Register User ---") 
+            print("\n--- Register User ---") 
             
             username = input("Enter username: ").strip()
 
@@ -112,7 +112,8 @@ class Login:
         print("==============================")
 
         while True:
-
+            
+            print ("\n--- Main Task Manager ---")
             print("1. File System")
             print("2. Process Manager")
             print("3. Memory Manager")
@@ -120,7 +121,7 @@ class Login:
             print("5. Logout")
 
             try:
-                choice = int(input("Choose an option: "))
+                choice = int(input("Choose an option (1-5): "))
             except ValueError:
                 print("Invalid choice type!")
                 continue

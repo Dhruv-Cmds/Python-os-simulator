@@ -24,7 +24,7 @@ class Start:
             try:            # To avoid user wrong input
                 choice = int(input("Choose an option (1-3): "))
             except ValueError: # To void crashes
-                print("Invalid choice type!")
+                print("Invalid choice type!\n")
                 continue
 
             if(choice == 1):
@@ -39,12 +39,12 @@ class Start:
                 l.login()
             
             elif(choice == 3):
-                print("Bye!")
+                print("\nBye!")
                 log("Python OS closed")
                 break
 
             else:
-                print("Invalid choice.")
+                print("Invalid choice.\n")
 
 s = Start()
 s.start_os()
