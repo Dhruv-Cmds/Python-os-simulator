@@ -164,15 +164,19 @@ No external libraries or frameworks were used.
 
 ---
 
-## Future Improvements
+## Changelog
 
-Potential improvements include:
+### v1.0.1
+- Fixed login validation
+- Fixed process manager edge case
+- Improved memory manager safety
 
-* Command-line interface enhancements
-* Thread-based process simulation
-* Improved memory management algorithms
-* Better logging system
-* User permission system
+### v1.0.0
+- Initial release
+- File system
+- Process manager
+- Memory manager
+- Logging
 
 ---
 
