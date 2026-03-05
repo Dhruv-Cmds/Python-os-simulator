@@ -99,10 +99,12 @@ python-os-simulator/
 │   ├── process.py
 │
 ├── data/
+│   │ └─ files/
 │   ├── files.json
 │   ├── logs.txt
 │   ├── test.txt
 │   └── users.txt
+│
 │
 ├── screenshots
 │

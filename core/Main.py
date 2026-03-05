@@ -30,13 +30,13 @@ class Start:
             if(choice == 1):
 
                 log("Login option selected")
-                l.login(None , None)
+                l.login()
 
             elif(choice == 2):
 
                 log("Register option selected")
                 username , password = l.register()
-                l.login(username , password)
+                l.login()
             
             elif(choice == 3):
                 print("Bye!")

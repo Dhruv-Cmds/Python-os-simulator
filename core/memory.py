@@ -7,16 +7,19 @@ class Memory:
 
         # fix memory size to stop memory overflow
         self.memory_limit = memory_limit
+        self.total_memory = memory_limit
         self.memory = {}
 
     # allocate memory to process
     def allocate_memory (self):
 
-        process = input("Enter process name: ")
+        process = input("Enter process name: ").strip()
 
         if process in self.memory:
             print("Process already exists.")
+            
             log(f"Memory allocation failed: {process} already exists")
+
             return
 
         # allocate memory in MB formate = amb
@@ -24,10 +27,16 @@ class Memory:
             try:
                 amb = int(input("Enter amount to allocate (MB): "))
 
+                if amb <= 0:
+                    print("Memory must be greater than 0.")
+                    log(f"Memory allocation failed for {process}: invalid amount {amb}")
+                    continue
+
                 if amb > self.memory_limit:
                     print("Insufficient memory.")
                     log(f"Memory allocation failed for {process}: insufficient memory request {amb}MB")
                     continue
+
             except ValueError:
                 print("Invalid (MB) type!")
                 log("Memory allocation failed: invalid MB input")
@@ -36,6 +45,12 @@ class Memory:
         
         # retrun available memory after procees took
         self.memory_limit -= amb
+
+        #  give waring to user
+        if self.memory_limit < 200:
+            print("Warning: Low memory!")
+
+            log("Low memory warning triggered")
         
         self.memory[process] = amb
         print(f"{amb} MB allocated to {process}.")
@@ -47,7 +62,11 @@ class Memory:
     # free memory from porcess
     def free_memory(self):
 
-        process = input("Enter process name to free memory: ")
+        process = input("Enter process name to free memory: ").strip()
+
+        if process == "":
+            print("Invalid process name.")
+            return
 
         if not self.memory:
             print("No memory to free.")
@@ -57,26 +76,31 @@ class Memory:
         # free space from memory = fmb
         if process in self.memory:
             freed = self.memory.pop(process)
+
             # return memory form process after end
             self.memory_limit += freed
+
             print(f"{freed} MB freed from {process} successfully.")
 
             log(f"{freed}MB memory freed from process {process}")
         
         else:
             print("Process not found.")
+
             log(f"Memory free failed: process {process} not found")
 
     # show memory usage from task
     def show_current_memory (self):
 
-        total_memory = 1024
+        total_memory = self.total_memory
         used_memory = sum(self.memory.values())
         free_memory = total_memory - used_memory
+        usage_percentage = (used_memory / total_memory) * 100
 
         print(f"Total Memory: {total_memory} MB")
         print(f"Used Memory: {used_memory} MB")
         print(f"Free Memory: {free_memory} MB")
+        print(f"Memory Usage: {usage_percentage:.2f}%")
 
         log("Memory status viewed")
 
@@ -88,7 +112,7 @@ class Memory:
 
         for process, mb in self.memory.items():
             print(f"{process} -> {mb} MB")
-
+    
     # main memory menu
     def memory_menu (self):
 

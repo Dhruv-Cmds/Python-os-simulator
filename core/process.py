@@ -12,7 +12,7 @@ class ProcessManager:
         
         process = {
             "pid" : self.next_pid,
-            "sp" : sp
+            "sp" : sp               # start process name = sp
         }
 
         self.processes.append(process)
@@ -37,6 +37,9 @@ class ProcessManager:
                 log(f"Process {p['sp']} with PID {pid} terminated")
 
                 return
+            
+        print("Process not found.")
+        log(f"Kill process failed: PID {pid} not found")
 
     # view process from here
     def view_running_task(self):
@@ -45,7 +48,7 @@ class ProcessManager:
             print("No running processes.")
             return
         
-        print("\n Running Processes: ")
+        print(f"\nRunning Processes ({len(self.processes)}):")
         for p in self.processes:
             print(f"PID {p['pid']} - {p['sp']}")
 
@@ -69,13 +72,21 @@ class ProcessManager:
 
             if choice == 1:
 
-                # start process = sp
-                sp = input("Enter process name: ")
+                # start process name = sp
+                sp = input("Enter process name: ").strip()
                 self.start_process(sp)
             
             elif choice == 2:
 
-                pid = int(input("Enter PID to kill: "))
+                # to prevent unknown user input
+                while True:
+                    try:
+                        pid = int(input("Enter PID to kill: "))
+                    except ValueError:
+                        print("Invalid PID.")
+                        continue
+                    break
+
                 self.kill_process(pid)
 
             elif choice == 3:

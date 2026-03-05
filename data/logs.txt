@@ -56,3 +56,8 @@
 [12:13:59] Login option selected
 [12:14:01] User dhruv logged in
 [12:14:12] Memory free attempted but no processes exist
+[17:50:15] Python OS started
+[17:50:19] Login option selected
+[17:50:24] User dhruv logged in
+[17:50:52] User dhruv logged out
+[17:50:55] Python OS closed

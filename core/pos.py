@@ -5,25 +5,47 @@ from logger import log
 
 class Login:
 
+    def __init__(self): 
+        self.current_user = None
+
     # LOGIN
-    def login(self , stored_username , stored_password):
+    def login(self):
         
         while True: 
-            username = input("Enter username: ")
+            username = input("Enter username: ").strip()
+
+            if username == "":
+                print("Invalid username.")
+                continue
+
             password = input("Enter 4-digit password: ")
+
+            if len(password) != 4 or not password.isdigit():
+                print("Wrong password! Try again.")
+                continue     
 
             try:
                 with open("data/users.txt" , "r") as f:
                     for line in f:
-                        u , p = line.strip().split(":")
+                        parts = line.strip().split(":") 
+                        if len(parts) != 2: 
+
+                            continue 
+
+                        u , p = parts 
+
                         if u == username and p == password:
                             print("Login successful!")
                             print(f"Welcome, {username}\n")
+                            
+                            self.current_user = username
 
                             log(f"User {username} logged in")
-
-                            l.main_menu()
+                            
+                            # to call main menu from here automatically
+                            self.main_menu()
                             return
+                        
             except FileNotFoundError:
                 print("No users registered yet.")
                 return
@@ -38,7 +60,27 @@ class Login:
 
             print("--- Register User ---") 
             
-            username = input("Enter username: ")
+            username = input("Enter username: ").strip()
+
+            if username == "":
+                print("Invalid username.")
+                continue
+
+            try:
+                with open("data/users.txt") as f:
+                    for line in f:
+                        parts = line.strip().split(":")  
+                        if len(parts) != 2: 
+                            continue 
+
+                        u, _ = parts 
+
+                        if u == username:
+                            print("Username already exists.")
+                            return
+            except FileNotFoundError:
+                pass
+
             password = input("Enter 4-digit password: ")
             confirm_password = input("Confirm password: ")
 
@@ -104,7 +146,7 @@ class Login:
 
             elif choice == 5:
                 print("Logged out.")
-                log("User logged out")
+                log(f"User {self.current_user} logged out")
                 break
 
             else:

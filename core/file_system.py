@@ -2,19 +2,56 @@
 import os
 from logger import log
 
+BASE_DIR = "data/files"
+
 class FileSystem:
 
     # CREAT FILES
     def create_file(self):
 
         # creat file = cf
-        cf = input("Enter file name: ")
+        cf = input("Enter file name: ").strip()
 
-        with open (cf , "w") as f:
+        if "." not in cf:
+            cf += ".txt"
+        
+        else:
+            name , ext = cf.rsplit("." , 1)
+            cf = name + "." + ext.lower()
+        
+        # blocked types:
+
+        blocked = [".mp3" , ".mp4" , ".png" ,
+                   ".jpg" , ".jpeg" , ".exe" , 
+                   ".dll" , ".zip" , ".rar" , 
+                   ".iso"]
+        
+        if any(cf.endswith(ext) for ext in blocked):
+            print("Unsupported file type for this system.")
+            return
+        
+        path = os.path.join(BASE_DIR, cf)
+
+        if os.path.exists(path):
+            print("File already exists.")
+            return
+        
+        lines = []
+
+        while True:
+
             # file content = fc
-            fc = input("Enter file content: ")
-            f.write(fc)
-            print("File created successfully.")
+            fc = input("Enter file content (type 'Q' to finish):  ").capitalize()
+            
+            if fc == "Q":
+                break
+            lines.append(fc)
+        
+        content = "\n".join(lines)
+
+        with open(path , "w") as f:
+            f.write(content)
+        print("File created successfully.")
 
         log(f"File {cf} created")
 
@@ -22,8 +59,11 @@ class FileSystem:
 
     # READ FILES
     def read_file(self, cf):
-        if os.path.exists(cf):
-            with open(cf, "r") as f:
+
+        path = os.path.join(BASE_DIR, cf)
+
+        if os.path.exists(path):
+            with open(path, "r") as f:
                 print(f.read())
 
             log(f"File {cf} read")
@@ -34,8 +74,10 @@ class FileSystem:
     # DELETE FILES
     def delete_file(self, cf):
 
-        if os.path.exists(cf):
-            os.remove(cf)
+        path = os.path.join(BASE_DIR, cf)
+
+        if os.path.exists(path):
+            os.remove(path)
             print("File deleted.")
 
             log(f"File {cf} deleted")
@@ -47,7 +89,7 @@ class FileSystem:
     def list_file(self):
         
         print("Files:")
-        files = [f for f in os.listdir() if os.path.isfile(f)]
+        files = os.listdir(BASE_DIR)
         for i , file in enumerate(files , 1):
             print(f"{i}: {file}")
 
@@ -58,7 +100,7 @@ class FileSystem:
 
         cf = None
 
-        print("--- File System ---")
+        print("\n--- File System ---")
         
         while True:
 
@@ -84,6 +126,9 @@ class FileSystem:
             elif choice == 3:
                 
                 file_name = input("Enter file name to delete: ")
+                confirm = input("Are you sure? (y/n): ")
+                if confirm.lower() != "y":
+                    return
                 self.delete_file(file_name)
 
             elif choice == 4:
