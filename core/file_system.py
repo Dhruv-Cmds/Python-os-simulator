@@ -3,11 +3,16 @@ import os
 from logger import log
 
 BASE_DIR = "data/files"
-
+ 
 class FileSystem:
 
     # CREAT FILES
-    def create_file(self , folder_path = BASE_DIR):
+    def create_file(self , folder_path = BASE_DIR):     # BASE_DIR is defult path {data/files}, when we sent argument 
+                                                        # folder_path = path. py replace BASE_DIR to path
+
+        if not os.path.exists(folder_path):
+            print("Folder path does not exist.")
+            return
 
         # creat file = cf
         cf = input("\nEnter file name: ").strip()
@@ -53,7 +58,7 @@ class FileSystem:
             f.write(content)
         print("File created successfully.\n")
 
-        log(f"File {cf} created")
+        log(f"File {cf} created in {folder_path}")
 
         return cf
 

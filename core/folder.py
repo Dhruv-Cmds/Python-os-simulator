@@ -35,10 +35,11 @@ class Folder:
 
         fs = file_system.fs
         
-        # opne folder = of
+        # opne folder = of 
 
         of = input("\nEnter folder name to open: ").strip()
 
+        # join join data/{foldername} so path will become one full path data/foldername
         path = os.path.join(BASE_DIR , of)
 
         if not os.path.exists(path):
@@ -52,7 +53,9 @@ class Folder:
             print("This is not a folder\n")
             return 
 
-        print(f"Entered folder: {of}\n")
+        print(f"Entered folder: {of}")
+
+        print(f"Path: {path}")
 
         log(f"Entered folder {of}")
 
@@ -64,6 +67,8 @@ class Folder:
             choice = input("Choose option: ").strip()
 
             if choice == "1":
+                # we are sending path which contain one argument path and path contain Base_DIR/{foldername}
+                # bc we creat folder here base_DIR/{foldername} this will pass to creat_file. We are sharing one argument only.
                 fs.create_file(path)
 
             elif choice == "2":
