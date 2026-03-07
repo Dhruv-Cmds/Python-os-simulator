@@ -1,4 +1,5 @@
 import pos
+import time
 from logger import log
 
 # PROJECT START FROM HERE
@@ -7,6 +8,14 @@ class Start:
     def start_os(self):
 
         l = pos.l
+
+        print("Booting Python OS...")
+        time.sleep(1)
+        print("Loading file system...")
+        time.sleep(1)
+        print("Loading memory manager...")
+        time.sleep(1)
+        print("System ready.\n")
 
         print("==============================")
         print("           PYTHON OS          ")

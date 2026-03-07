@@ -1,3 +1,5 @@
+import os
+import time
 import file_system
 import process
 import memory
@@ -43,6 +45,8 @@ class Terminal:
 
     def run_terminal(self):
 
+        start_time = time.time()
+
         fs = file_system.fs
         p = process.p
         m = memory.m
@@ -50,6 +54,10 @@ class Terminal:
 
         print("\nMini OS Simulator Terminal")
         print("Type 'help' to see commands\n")
+        print("Type 'clear' to clear Terminal\n")
+        print("Type 'system_info' to check system information\n")
+        print("Type 'about' to check about program information\n")
+        print("Type 'uptime' to check OS run time\n")
 
         while True:
 
@@ -132,6 +140,45 @@ class Terminal:
             elif command == "exit":
                 print("Shutting down OS...")
                 break
+
+            # ---------------- OS SHORT-CUTS ---------------- #
+
+            elif command == "clear":
+                os.system("cls" if os.name == "nt" else "clear")
+            
+            elif command == "system_info":
+
+                print("\n=== System Information ===")
+                print("OS Name: Python OS Simulator")
+                print("Version: 1.1.0")
+                print("Language: Python")
+                print("Modules Loaded:")
+                print("- File System")
+                print("- Folder Manager")
+                print("- Memory Manager")
+                print("- Process Manager")
+                print("- Logger")
+                print("- Command Terminal")
+                print("===========================\n")
+            
+            elif command == "about":
+
+                print("\n=== About Python OS ===")
+                print("Python OS Simulator")
+                print("Version: 1.2.0")
+                print("Built using Python")
+                print("Architecture: Modular CLI System")
+                print("Modules:")
+                print("- File System")
+                print("- Folder Manager")
+                print("- Memory Manager")
+                print("- Process Manager")
+                print("- Logger")
+                print("- Command Terminal")
+                print("=======================\n")
+            
+            elif command == "uptime":
+                print(f"Uptime: {round(time.time() - start_time,2)} seconds")
 
             else:
                 print("Unknown command. Type 'help'")
