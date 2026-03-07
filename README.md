@@ -186,6 +186,15 @@ No external libraries or frameworks were used.
 
 ## Changelog
 
+### v1.2.0
+
+New Features
+- Added terminal commands (about, uptime, system_info)
+- Improved command terminal usability
+
+Improvements
+- Better system interaction through command interface
+
 ### v1.1.0
 - Introduced Folder Manager (create, open, delete folders)
 - Enabled file creation inside folders
