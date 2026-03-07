@@ -48,6 +48,9 @@ The goal of this project is to simulate how a simple operating system manages di
 ### Memory Manager
 ![Memory Manager](screenshots/14_memory_manager_menu.png)
 
+### Terminal 
+![Terminal Mode](screenshots/terminal.png)
+
 ### System Logs
 ![Logs](screenshots/20_view_system_logs.png)
 
@@ -79,6 +82,13 @@ The goal of this project is to simulate how a simple operating system manages di
   * Track used and free memory
   * Deallocate memory
 
+* **Create Folder**
+
+  * Create folder
+  * Open fodler
+  * Delete fodler
+  * List folder
+
 * **System Logging**
 
   * Track important system events
@@ -94,6 +104,7 @@ The goal of this project is to simulate how a simple operating system manages di
 python-os-simulator/
 │
 ├── core/
+│   ├── cmd.py
 │   ├── file_system.py
 │   ├── folder.py
 │   ├── logger.py
@@ -154,7 +165,8 @@ Main Menu
 3. Process Manager
 4. Memory Manager
 5. View Logs
-6. Logout
+6. Terminal
+7. Logout
 ```
 
 ---
@@ -173,6 +185,12 @@ No external libraries or frameworks were used.
 ---
 
 ## Changelog
+
+### v1.1.0
+- Introduced Folder Manager (create, open, delete folders)
+- Enabled file creation inside folders
+- Improved modular interaction between folder and file system
+- Stability improvements and bug fixes
 
 ### v1.0.1
 - Fixed login validation

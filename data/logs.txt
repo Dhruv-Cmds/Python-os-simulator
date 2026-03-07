@@ -143,3 +143,6 @@
 [18:46:02] File name.py created in data/files
 [18:46:14] File list viewed
 [18:46:41] File name.py deleted
+[18:50:18] Python OS started
+[18:50:19] Login option selected
+[18:50:23] User dhruv logged in
