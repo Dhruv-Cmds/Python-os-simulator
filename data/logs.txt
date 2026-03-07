@@ -105,3 +105,41 @@
 [15:43:31] Python OS started
 [15:43:33] Login option selected
 [15:43:36] User dhruv logged in
+[18:12:41] Python OS started
+[18:12:43] Login option selected
+[18:12:48] User dhruv logged in
+[18:31:35] Python OS started
+[18:31:53] Login option selected
+[18:31:58] Python OS started
+[18:32:00] Login option selected
+[18:32:04] User dhruv logged in
+[18:39:42] Python OS started
+[18:39:43] Login option selected
+[18:39:48] User dhruv logged in
+[18:41:08] Python OS started
+[18:41:10] Login option selected
+[18:41:15] User dhruv logged in
+[18:41:19] User dhruv logged out
+[18:41:25] Login option selected
+[18:41:29] User dhruv logged in
+[18:41:31] User dhruv logged out
+[18:41:42] Login option selected
+[18:41:48] User dhruv logged in
+[18:42:04] Folder list viewed
+[18:42:31] File list viewed
+[18:43:07] File gg.txt created in data/files
+[18:43:17] User dhruv logged out
+[18:43:18] Python OS closed
+[18:43:31] Python OS started
+[18:43:33] Login option selected
+[18:43:41] User dhruv logged in
+[18:43:50] File list viewed
+[18:45:06] Python OS started
+[18:45:08] Login option selected
+[18:45:18] User dhruv logged in
+[18:45:21] User dhruv logged out
+[18:45:26] Login option selected
+[18:45:30] User dhruv logged in
+[18:46:02] File name.py created in data/files
+[18:46:14] File list viewed
+[18:46:41] File name.py deleted

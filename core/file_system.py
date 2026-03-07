@@ -133,6 +133,12 @@ class FileSystem:
 
     # SHOW LIST OF FILES
     def list_file(self):
+
+        if not os.listdir(BASE_DIR):
+            print("No files to show")
+
+            log ("No file found.")
+            return
         
         print("\nFiles:")
         files = os.listdir(BASE_DIR)

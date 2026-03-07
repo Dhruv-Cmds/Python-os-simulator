@@ -2,6 +2,7 @@ import file_system
 import process
 import memory
 import folder
+import cmd
 from logger import log
 
 class Login:
@@ -108,6 +109,7 @@ class Login:
         p = process.p
         m = memory.m
         fo = folder.fo
+        tml = cmd.tml
 
         print("==============================")
         print("           Main Menu          ")
@@ -121,10 +123,11 @@ class Login:
             print("3. Process Manager")
             print("4. Memory Manager")
             print("5. View Logs")
-            print("6. Logout")
+            print("6. Terminal Mode")
+            print("7. Logout")
 
             try:
-                choice = int(input("Choose an option (1-6): "))
+                choice = int(input("Choose an option (1-7): "))
             except ValueError:
                 print("Invalid choice type!")
                 continue
@@ -150,8 +153,11 @@ class Login:
                         print(f.read())
                 except FileNotFoundError:
                     print("No logs found.")
-
+     
             elif choice == 6:
+                tml.run_terminal()
+
+            elif choice == 7:
                 print("Logged out.")
                 log(f"User {self.current_user} logged out")
                 break
