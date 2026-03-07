@@ -146,7 +146,7 @@ class Memory:
                 break
 
             else:
-                print("Invalid choice.\n")
+                print("Invalid choice type.\n")
                 log("Invalid memory menu choice entered")
 
 m = Memory()

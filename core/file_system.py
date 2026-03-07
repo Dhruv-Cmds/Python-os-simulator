@@ -7,7 +7,7 @@ BASE_DIR = "data/files"
 class FileSystem:
 
     # CREAT FILES
-    def create_file(self):
+    def create_file(self , folder_path = BASE_DIR):
 
         # creat file = cf
         cf = input("\nEnter file name: ").strip()
@@ -30,20 +30,20 @@ class FileSystem:
             print("Unsupported file type for this system.")
             return
         
-        path = os.path.join(BASE_DIR, cf)
+        path = os.path.join(folder_path, cf)
 
         if os.path.exists(path):
             print("File already exists.\n")
             return
-        
+
         lines = []
 
         while True:
 
             # file content = fc
-            fc = input("Enter file content (type 'Q' to finish):  ").capitalize()
+            fc = input("Enter file content (type 'Q' to finish):  ").strip()
             
-            if fc == "Q":
+            if fc.upper() == "Q":
                 break
             lines.append(fc)
         
@@ -67,6 +67,47 @@ class FileSystem:
                 print(f.read())
 
             log(f"File {cf} read")
+
+        else:
+            print("File not found.\n")
+
+    #  EDIT AVAILABLE FILES
+    def edit_file(self , cf):
+
+        path = os.path.join(BASE_DIR, cf)
+
+        if os.path.exists(path):
+            
+            print("\nCurrent Content:\n")
+
+            with open (path , "r") as f:
+                print(f.read())
+            
+            # To add new lines
+            lines = []
+
+            while True:
+
+                # file content = fc
+                fc = input("Enter file content (type 'Q' to finish):  ").strip()
+
+                if fc.upper() == "Q":
+                    break
+                lines.append(fc)
+
+                if not lines:
+                    print("No changes made.")
+
+                    log (f"File edit cancelled ")
+
+                    return          
+
+            with open (path , "w") as f:
+                f.write("\n".join(lines))
+            
+            print("File updated.\n")
+
+            log(f"File {cf} updated.")
 
         else:
             print("File not found.\n")
@@ -106,12 +147,13 @@ class FileSystem:
             print("\n--- File System ---")
             print("1. Create File")
             print("2. Read File")
-            print("3. Delete File")
-            print("4. List Files")
-            print("5. Back")
+            print("3. Edit File")
+            print("4. Delete File")
+            print("5. List Files")
+            print("6. Back")
 
             try:            # To avoid user wrong input
-                choice = int(input("Choose an option (1-5): "))
+                choice = int(input("Choose an option (1-6): "))
             except ValueError:     # To void crashes
                 print("Invalid choice type!\n")
                 continue
@@ -120,25 +162,29 @@ class FileSystem:
                 self.create_file()
 
             elif choice == 2:
-                file_name = input("\nEnter file name to read: ")
+                file_name = input("\nEnter file name to read: ").strip()
                 self.read_file(file_name)
 
             elif choice == 3:
+                file_name = input("\n Enter file name to edit: ").strip()
+                self.edit_file(file_name)
+
+            elif choice == 4:
                 
-                file_name = input("\nEnter file name to delete: ")
-                confirm = input("Are you sure? (y/n): ")
+                file_name = input("\nEnter file name to delete: ").strip()
+                confirm = input("Are you sure? (y/n): ").strip()
                 if confirm.lower() != "y":
                     return
                 self.delete_file(file_name)
 
-            elif choice == 4:
+            elif choice == 5:
                 self.list_file()
 
-            elif choice == 5:
+            elif choice == 6:
                 print("\nBack...")
                 break
 
             else:
-                print("Invalid choice.\n")
+                print("Invalid choice type.\n")
 
 fs = FileSystem()

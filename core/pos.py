@@ -1,6 +1,7 @@
 import file_system
 import process
 import memory
+import folder
 from logger import log
 
 class Login:
@@ -106,6 +107,7 @@ class Login:
         fs = file_system.fs
         p = process.p
         m = memory.m
+        fo = folder.fo
 
         print("==============================")
         print("           Main Menu          ")
@@ -115,13 +117,14 @@ class Login:
             
             print ("\n--- Main Task Manager ---")
             print("1. File System")
-            print("2. Process Manager")
-            print("3. Memory Manager")
-            print("4. View Logs")
-            print("5. Logout")
+            print("2. Creat Folder")
+            print("3. Process Manager")
+            print("4. Memory Manager")
+            print("5. View Logs")
+            print("6. Logout")
 
             try:
-                choice = int(input("Choose an option (1-5): "))
+                choice = int(input("Choose an option (1-6): "))
             except ValueError:
                 print("Invalid choice type!")
                 continue
@@ -130,12 +133,15 @@ class Login:
                 fs.file_system_menu()
 
             elif choice == 2:
-                p.process_manager()
+                fo.folder_menu()
 
             elif choice == 3:
-                m.memory_menu()
+                p.process_manager()
 
             elif choice == 4:
+                m.memory_menu()
+
+            elif choice == 5:
 
                 print("\n--- System Logs ---")
 
@@ -145,7 +151,7 @@ class Login:
                 except FileNotFoundError:
                     print("No logs found.")
 
-            elif choice == 5:
+            elif choice == 6:
                 print("Logged out.")
                 log(f"User {self.current_user} logged out")
                 break

@@ -37,16 +37,19 @@ The goal of this project is to simulate how a simple operating system manages di
 ![Main Menu](screenshots/03_login_success_main_menu.png)
 
 ### File System
-![File System](screenshots/04_file_system_menu.png)
+![File System](screenshots/04_file_system_menu_and_creat_file.png)
 
 ### Process Manager
-![Process Manager](screenshots/10_process_manager_menu.png)
+![Process Manager](screenshots/9_process_manager_menu.png)
 
 ### Memory Manager
 ![Memory Manager](screenshots/14_memory_manager_menu.png)
 
+### Folder Manager
+![Folder Manager](screenshots/23_folder_manager_menu.png)
+
 ### System Logs
-![Logs](screenshots/19_view_system_logs.png)
+![Logs](screenshots/20_view_system_logs.png)
 
 
 ## Features
@@ -92,14 +95,17 @@ python-os-simulator/
 │
 ├── core/
 │   ├── file_system.py
-│   └── logger.py
+│   ├── folder.py
+│   ├── logger.py
 │   ├── Main.py
 │   ├── memory.py
 │   ├── pos.py
 │   ├── process.py
 │
 ├── data/
-│   │ └─ files/
+│   │ └── files/
+│   └── player/
+│         └─ main.py
 │   ├── files.json
 │   ├── logs.txt
 │   ├── test.txt
@@ -110,6 +116,7 @@ python-os-simulator/
 │
 ├── .gitattributes
 ├── .gitignore
+├──  LICENSE
 └── README.md
 ```
 
@@ -143,10 +150,11 @@ Login successful!
 
 Main Menu
 1. File System
-2. Process Manager
-3. Memory Manager
-4. View Logs
-5. Logout
+2. Creat Folder
+3. Process Manager
+4. Memory Manager
+5. View Logs
+6. Logout
 ```
 
 ---

@@ -61,3 +61,47 @@
 [17:50:24] User dhruv logged in
 [17:50:52] User dhruv logged out
 [17:50:55] Python OS closed
+[14:27:59] Python OS started
+[14:28:14] Login option selected
+[14:28:18] User dhruv logged in
+[14:29:15] Python OS started
+[14:29:17] Login option selected
+[14:29:23] User dhruv logged in
+[14:29:47] Folder player created
+[14:30:00] Folder player created
+[14:30:12] User dhruv logged out
+[14:30:13] Python OS closed
+[15:11:56] Python OS started
+[15:11:58] Register option selected
+[15:12:08] Python OS started
+[15:12:11] Login option selected
+[15:12:15] User dhruv logged in
+[15:12:45] File gg.txt created
+[15:13:09] File gg.txt deleted
+[15:13:31] Folder player created
+[15:13:35] Folder test created
+[15:13:40] Folder list viewed
+[15:14:15] Folder test deleted
+[15:14:28] Folder list viewed
+[15:14:45] Entered folder player
+[15:15:17] File main.py created
+[15:15:52] Folder not found
+[15:15:59] User dhruv logged out
+[15:16:01] Python OS closed
+[15:17:49] Python OS started
+[15:17:50] Login option selected
+[15:17:54] User dhruv logged in
+[15:23:41] Folder player created
+[15:23:54] Folder list viewed
+[15:24:19] Entered folder player
+[15:24:37] File main.py created
+[15:25:43] Folder test created
+[15:25:51] Folder test deleted
+[15:26:05] User dhruv logged out
+[15:26:07] Python OS closed
+[15:38:24] Python OS started
+[15:38:25] Login option selected
+[15:38:30] User dhruv logged in
+[15:43:31] Python OS started
+[15:43:33] Login option selected
+[15:43:36] User dhruv logged in
