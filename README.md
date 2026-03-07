@@ -39,14 +39,14 @@ The goal of this project is to simulate how a simple operating system manages di
 ### File System
 ![File System](screenshots/04_file_system_menu_and_creat_file.png)
 
+### Folder Manager
+![Folder Manager](screenshots/23_folder_manager_menu.png)
+
 ### Process Manager
 ![Process Manager](screenshots/9_process_manager_menu.png)
 
 ### Memory Manager
 ![Memory Manager](screenshots/14_memory_manager_menu.png)
-
-### Folder Manager
-![Folder Manager](screenshots/23_folder_manager_menu.png)
 
 ### System Logs
 ![Logs](screenshots/20_view_system_logs.png)
