@@ -215,10 +215,15 @@ Improvements
 
 ---
 
+Project Stats
+
+~1600+ lines of Python code  
+8 modular components  
+Terminal-based OS simulation
+
 ## Author
 
 Dhruv
 
-Python Developer | Exploring System Design, OOP, and Low-Level Programming
-
+Python Developer | Exploring System Design
 GitHub: https://github.com/Dhruv-Cmds
