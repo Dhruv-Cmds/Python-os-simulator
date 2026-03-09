@@ -291,7 +291,7 @@ class Terminal:
 
                 print("\n=== About Python OS ===")
                 print("Python OS Simulator")
-                print("Version: 1.2.0")
+                print("Version: 1.3.0")
                 print("Built using Python")
                 print("Architecture: Modular CLI System")
                 print("Modules:")
