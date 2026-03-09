@@ -181,8 +181,6 @@ class Terminal:
                     #  make path data/foldername/file.txt
                     path = os.path.join("data" , file_path)
 
-                    path = os.path.join("data" , file_path)
-
                     folder_name = os.path.dirname(path)
 
                     #  folder exist check
