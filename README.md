@@ -96,6 +96,28 @@ The goal of this project is to simulate how a simple operating system manages di
   * File operations
   * Process actions
 
+## Shell Commands
+
+```bash
+ls                     # list files
+mkdir <folder_name>    # create folder
+touch <file>           # create file
+touch <folder/file>    # create file inside folder
+rm <file>              # delete file
+rm <folder/file>       # delete file inside folder
+```
+
+## System Commands
+
+```bash
+help
+about
+system_info
+uptime
+clear
+exit
+```
+
 ---
 
 ## Project Structure
